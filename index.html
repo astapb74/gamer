@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ball</title>
+    <meta charset="utf-8">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="ball.js"></script>
+    <script src='spectrum.js'></script>
+    <link rel='stylesheet' href='spectrum.css' />
+    <link rel='stylesheet' href='main.css' />
+</head>
+<body>
+    <div id="ramka">
+        <div class="essence ball"></div>
+    </div>
+
+    <form id="ball_decorator">
+        <h3 style="display: block">Панель управления</h3>
+
+        <div>
+            <label>Выберите цвет:</label>
+            <input type='text' id="custom" />
+            <script type="text/javascript" language="JavaScript">
+                $("#custom").spectrum({
+                    color: "#f00"
+                });
+            </script>
+        </div>
+        <br />
+        <div>
+            <label>Нарисовать фигуру:</label>
+            <input class="btn btn-default" type="button" name="draw" value="draw" />
+        </div>
+        <br />
+        <div>
+            <label>Начать игру <span class="func_key_up">"S"</span>:</label>
+            <input class="btn btn-default" type="button" value="start" name="start" />
+	        <input  class="form-control" type="number" value="3" min="1" max="5" id="counter_beast" />
+        </div>
+        <div>
+            <span>Для перемещения используйте клавиши<br />
+            на клавиатуре num look. <br />
+            8 - вверх.<br />
+            4 - влево.<br />
+            2 - вниз.<br />
+            6 - вправо.
+            </span>
+        </div>
+    </form>
+</body>
+</html>

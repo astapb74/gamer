@@ -1,0 +1,59 @@
+body { 
+    background-color: rgba(70, 95, 32, 0.6);
+}
+
+.ball {
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -o-border-radius: 25px;
+    border-radius: 25px;
+}
+#ball_decorator {
+    float: right;
+    width: 300px;
+    border: 1px solid green;
+    background-color: rgba(8, 128, 0, 0.5);
+    color: greenyellow;
+}
+
+#ball_decorator .func_key_up { 
+    color: red;
+}
+
+
+#ball_decorator H3 {
+    text-align: center;
+    color: greenyellow;
+}
+
+#ball_decorator div.sp-replacer,
+#ball_decorator input { 
+    float: right;
+}
+
+#ball_decorator > * {
+    margin-bottom: 5px;
+}
+#ball_decorator > fieldset {
+    width: 140px;
+    padding: 5px 20px 5px 25px;
+}
+#ball_decorator > div > label {
+    margin-right: 5px;
+}
+
+#ramka {
+    width: 920px;
+    height: 420px;
+    float: left;
+    border: 10px double black;
+    background-color: rgba(59, 154, 20, 0.74);
+}
+#counter_beast {
+    width: 55px;;
+}
