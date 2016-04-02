@@ -2,7 +2,7 @@
  * Created by mpeegy on 13.06.14.
  */
 
-var Gamer = {}, Beasts = {};
+var Gamer = {}, Beasts = {}, timer;
 
 function essence(param) {
     this.radiusCollision = param.radiusCollision;
@@ -146,6 +146,7 @@ essence.prototype =
             // Если жертвы нет, то мне делать нечего
             if( !Gamer.life ) {
                 clearInterval(intervalId);
+                clearInterval(timer);
             }
 
             var options = {
@@ -174,6 +175,7 @@ essence.prototype =
                 Gamer.obj.remove();
                 Gamer.life = false;
                 clearInterval(intervalId);
+                clearInterval(timer);
            } 
 
             // Зверь просматривает своих друзей
@@ -228,45 +230,64 @@ $(document).ready(function () {
 
     var gameStart = function()
     {
-	var counterBeast = parseInt($('#counter_beast').val());
-	if (counterBeast < 1 || counterBeast > 5)
-	{
-		alert('Неверно задано колличество противников 1..5. '+counterBeast);
-		return;
-	}
 
-	for (var i = 1; i <= counterBeast; i++) {
+        timer = setInterval(function(){ 
+            var time = $('#timer').text().split(':');
 
-		var clone = $('.essence').clone().css({'text-align': 'center', 'color': 'white', 'line-height': '50px'}).html('<span>' + i + '</span>'),
-		    color = 'rgb(' + Math.floor(Math.random() * 1000 / 4)
-		        + ', ' + Math.floor(Math.random() * 1000 / 4)
-		        + ', ' + Math.floor(Math.random() * 1000 / 4) + ')',
-		    Beast = 'Beast' + i;
+                time[1] = parseInt(time[1]) + 1;
+                if (time[1] == 60)
+                { 
+                    time[1] = '00';
+                    time[0] = parseInt(time[0]) + 1;
+                    time[0] = time[0] < 10 ? '0' + time[0] : time[0];
+                } 
+                else if (time[1] < 10)
+                { 
+                    time[1] = '0' + time[1];
+                }
+
+                $('#timer').text(time.join(':'));
+        }, 1000);
+
+    	var counterBeast = parseInt($('#counter_beast').val());
+    	if (counterBeast < 1 || counterBeast > 5)
+    	{
+    		alert('Неверно задано колличество противников 1..5. '+counterBeast);
+    		return;
+    	}
+
+    	for (var i = 1; i <= counterBeast; i++) {
+
+    		var clone = $('.essence').clone().css({'text-align': 'center', 'color': 'white', 'line-height': '50px'}).html('<span>' + i + '</span>'),
+    		    color = 'rgb(' + Math.floor(Math.random() * 1000 / 4)
+    		        + ', ' + Math.floor(Math.random() * 1000 / 4)
+    		        + ', ' + Math.floor(Math.random() * 1000 / 4) + ')',
+    		    Beast = 'Beast' + i;
 
 
-		$("#ramka").append(clone);
+    		$("#ramka").append(clone);
 
 
-		Beasts[Beast] = new essence({
-		    color: color,
-		    $obj: clone,
-		    radiusCollision: 10
-		});
+    		Beasts[Beast] = new essence({
+    		    color: color,
+    		    $obj: clone,
+    		    radiusCollision: 10
+    		});
 
-		Beasts[Beast].name = Beast;
-		
+    		Beasts[Beast].name = Beast;
+    		
 
-		Beasts[Beast].draw({
+    		Beasts[Beast].draw({
 
-		    left: Math.floor(Math.random() * 1000),
-		    top: Math.floor(Math.random() * 1000 / 2),
+    		    left: Math.floor(Math.random() * 1000),
+    		    top: Math.floor(Math.random() * 1000 / 2),
+                position: 'relative',
+    		    zIndex: 3
+    		});
 
-		    zIndex: 1
-		});
+    		Beasts[Beast].inc();
 
-		Beasts[Beast].inc();
-
-	}
+    	}
     }
 
     $("#custom").spectrum({
@@ -274,13 +295,13 @@ $(document).ready(function () {
     });
 
     Gamer = new essence({
-        $obj: $('#ramka > div'),
+        $obj: $('#ramka div.ball'),
         radiusCollision: 10,
         color: 'blue'
     });
 
     $('form input[name=draw]').on('click', function () {
-        $('#ramka > div').show();
+        $('#ramka div.ball').show();
         Gamer.draw({color: $('.sp-preview-inner').css('background-color')});
     });
 
@@ -291,22 +312,18 @@ $(document).ready(function () {
         switch (event.keyCode) {
             case 56:
                 Gamer.top -= 5;
-
                 Gamer.draw();
                 break;
             case 54:
                 Gamer.left += 5;
-
                 Gamer.draw();
                 break;
             case 50:
                 Gamer.top += 5;
-
                 Gamer.draw();
                 break;
             case 52:
                 Gamer.left -= 5;
-
                 Gamer.draw();
                 break;
     	     case 115:

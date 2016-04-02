@@ -58,6 +58,13 @@ body {
     border: 10px double black;
     background-color: rgba(59, 154, 20, 0.74);
 }
+
+#ramka > span#timer { 
+    position: absolute;
+    font-size: 270px;
+    margin-left: 100px;
+}
+
 #counter_beast {
     width: 55px;;
 }
