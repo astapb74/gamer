@@ -47,6 +47,10 @@ body {
     margin-right: 5px;
 }
 
+#ball_decorator #panel-drive { 
+    text-align: center;
+}
+
 #ramka {
     width: 920px;
     height: 420px;
