@@ -229,6 +229,9 @@ $(document).ready(function () {
 
     var gameStart = function()
     {
+        
+        if (timer)
+            return;
 
         timer = setInterval(function(){ 
             var time = $('#timer').text().split(':');
