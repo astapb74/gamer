@@ -59,6 +59,11 @@ body {
 
 #ball_decorator #panel-drive { 
     text-align: center;
+    margin-bottom: 15px;
+}
+
+#ball_decorator #panel-drive .label-success { 
+    padding: 1.2em .6em 1.3em;
 }
 
 #ramka {

@@ -4,6 +4,8 @@
     <title>ball</title>
     <meta charset="utf-8">
 
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -13,7 +15,6 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="ball.js"></script>
     <script src='spectrum.js'></script>
     <link rel='stylesheet' href='spectrum.css' />
@@ -52,11 +53,11 @@
         <br />
         <div id="panel-drive">
             <span>Для перемещения используйте клавиши<br />
-            на клавиатуре num look. <br />
-            <span class="label label-success">8 - вверх.</span><br />
-            <span class="label label-success">4 - влево.</span>
-            <span class="label label-success">6 - вправо.</span><br />
-            <span class="label label-success">2 - вниз.</span>
+            на клавиатуре num look. <br /><br />
+            <span id="case_top" class="label label-success">8 - вверх.</span><br /><br />
+            <span id="case_left" class="label label-success">4 - влево.</span>
+            <span id="case_right" class="label label-success">6 - вправо.</span><br /><br />
+            <span id="case_bottom" class="label label-success">2 - вниз.</span>
             </span>
         </div>
     </form>

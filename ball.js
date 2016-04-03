@@ -204,7 +204,7 @@ essence.prototype =
                         leftR = figure1.y2 - figure2.y2;                     
                     
                     point = parseInt( point[0].toString().replace(/,/g, ''), 2 );
-                    console.log(point);
+
                     // если пересечение справа или слева идем обратно
                     options.left = point > 4 ? figure2.x2 - figure1.x1 : 0;
                     // если пересечение сверху идем вниз
@@ -309,24 +309,35 @@ $(document).ready(function () {
         Gamer.draw({color: $('.sp-preview-inner').css('background-color')});
     });
 
+    var cases = {
+        top: $('#case_top'),
+        left: $('#case_left'),
+        right: $('#case_right'),
+        bottom: $('#case_bottom')
+    };
+
     $(document).on('keypress', function (event) {
 
         Gamer.color = $('.sp-preview-inner').css('background-color');
 
         switch (event.keyCode) {
             case 56:
+                cases.top.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.top -= 5;
                 Gamer.draw();
                 break;
             case 54:
+                cases.right.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.left += 5;
                 Gamer.draw();
                 break;
             case 50:
+                cases.bottom.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.top += 5;
                 Gamer.draw();
                 break;
             case 52:
+                cases.left.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.left -= 5;
                 Gamer.draw();
                 break;
