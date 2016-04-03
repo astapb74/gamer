@@ -5,7 +5,6 @@
 var Gamer = {}, Beasts = {}, timer;
 
 function essence(param) {
-    this.radiusCollision = param.radiusCollision;
     this.color = param.color;
     this.obj = param.$obj;
     this.left = typeof param.left != 'undefined' ? param.left : 0;
@@ -155,10 +154,10 @@ essence.prototype =
                 },
                 // Я смотрю на 
                 figure1 = {
-                        x1: $obj.top - $obj.radiusCollision,
-                        y1: $obj.left - $obj.radiusCollision,
-                        x2: $obj.top + $obj.height + $obj.radiusCollision,
-                        y2: $obj.left + $obj.width + $obj.radiusCollision,
+                        x1: $obj.top,
+                        y1: $obj.left,
+                        x2: $obj.top + $obj.height,
+                        y2: $obj.left + $obj.width,
                     },
                // Сьел ли я жертву
                figure2 = {
@@ -189,10 +188,10 @@ essence.prototype =
 
                 // на товарища                
                 var figure2 = {
-                        x1: Beasts[i].top - Beasts[i].radiusCollision,
-                        y1: Beasts[i].left - Beasts[i].radiusCollision,
-                        x2: (Beasts[i].top - Beasts[i].radiusCollision) + Beasts[i].height + Beasts[i].radiusCollision,
-                        y2: (Beasts[i].left - Beasts[i].radiusCollision) + Beasts[i].width + Beasts[i].radiusCollision,
+                        x1: Beasts[i].top,
+                        y1: Beasts[i].left,
+                        x2: Beasts[i].top + Beasts[i].height,
+                        y2: Beasts[i].left + Beasts[i].width,
                     },
                     point = $obj.searchIntersection(figure1, figure2);
 
@@ -265,8 +264,7 @@ $(document).ready(function () {
 
     		Beasts[Beast] = new essence({
     		    color: color,
-    		    $obj: clone,
-    		    radiusCollision: 10
+    		    $obj: clone
     		});
 
     		Beasts[Beast].name = Beast;
@@ -303,7 +301,6 @@ $(document).ready(function () {
 
     Gamer = new essence({
         $obj: $('#ramka div.ball'),
-        radiusCollision: 10,
         color: 'blue'
     });
 
