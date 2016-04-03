@@ -331,8 +331,11 @@ $(document).ready(function () {
                 Gamer.draw();
                 break;
     	     case 115:
+             case 83:
+             case 1099:
+             case 1067:
     		    gameStart();
-		        break;
+		     break;
         }
     });
 
