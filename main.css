@@ -13,12 +13,20 @@ body {
     -o-border-radius: 25px;
     border-radius: 25px;
 }
+
 #ball_decorator {
     float: right;
     width: 300px;
     border: 1px solid green;
     background-color: rgba(8, 128, 0, 0.5);
     color: greenyellow;
+}
+
+#ball_decorator .panel-control_header {
+    width: 100%;
+    height: 25px;
+    background-color: rgba(173, 255, 47, 0.58);
+    border: 1px solid #8ADE0A;
 }
 
 #ball_decorator .func_key_up { 
@@ -39,10 +47,12 @@ body {
 #ball_decorator > * {
     margin-bottom: 5px;
 }
+
 #ball_decorator > fieldset {
     width: 140px;
     padding: 5px 20px 5px 25px;
 }
+
 #ball_decorator > div > label {
     margin-right: 5px;
 }
@@ -55,14 +65,16 @@ body {
     width: 920px;
     height: 420px;
     float: left;
-    border: 10px double black;
-    background-color: rgba(59, 154, 20, 0.74);
+    border: 10px double #104A05;
+    background-color: rgba(59, 154, 20, 0.33);
+    border-radius: 35px;
 }
 
 #ramka > span#timer { 
     position: absolute;
     font-size: 270px;
     margin-left: 100px;
+    color: rgba(5, 70, 5, 0.74);
 }
 
 #counter_beast {
