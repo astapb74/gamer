@@ -250,12 +250,7 @@ $(document).ready(function () {
         }, 1000);
 
     	var counterBeast = parseInt($('#counter_beast').val());
-    	if (counterBeast < 1 || counterBeast > 5)
-    	{
-    		alert('Неверно задано колличество противников 1..5. '+counterBeast);
-    		return;
-    	}
-
+    	
     	for (var i = 1; i <= counterBeast; i++) {
 
     		var clone = $('.essence').clone().css({'text-align': 'center', 'color': 'white', 'line-height': '50px'}).html('<span>' + i + '</span>'),
@@ -289,6 +284,18 @@ $(document).ready(function () {
 
     	}
     }
+
+    $('#counter_beast').on('change', function() { 
+        var $this = $(this);
+        if ($this.val() > 5)
+        { 
+            $this.val(5);
+        }
+        if ($this.val() < 1)
+        { 
+            $this.val(1);
+        }
+    });
 
     $("#custom").spectrum({
         color: "#f00"
