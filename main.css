@@ -15,7 +15,7 @@ body {
 }
 
 #ball_decorator {
-    float: right;
+    float: left;
     width: 300px;
     border: 1px solid green;
     background-color: rgba(8, 128, 0, 0.5);
