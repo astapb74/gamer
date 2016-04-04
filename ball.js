@@ -130,16 +130,13 @@ essence.prototype =
             }
             
             return point;
-        
     },
 
     // автоматическое инициализация объекта
     // позволяет объекту обнаружить жертву
     inc: function () {
 
-        var $obj = this;
-
-
+        var $obj = this,
         var intervalId = setInterval(function () {
             
             // Если жертвы нет, то мне делать нечего
@@ -179,9 +176,7 @@ essence.prototype =
 
             // Зверь просматривает своих друзей
             for ( var i in Beasts ) {
-
                 // мне сейчас не до себя
-
                 if( Beasts[i].name.indexOf( $obj.name ) > -1 ) {
                     continue;
                 }
@@ -220,7 +215,6 @@ essence.prototype =
             });
 
         }, 100);
-
 
     }
 }
@@ -282,26 +276,20 @@ $(document).ready(function () {
     		        + ', ' + Math.floor(Math.random() * 1000 / 4) + ')',
     		    Beast = 'Beast' + i;
 
-
     		$("#ramka").append(clone);
-
 
     		Beasts[Beast] = new essence({
     		    color: color,
     		    $obj: clone
     		});
-
     		Beasts[Beast].name = Beast;
-    		
     		Beasts[Beast].draw({
     		    left: Math.floor(Math.random() * 1000),
     		    top: Math.floor(Math.random() * 1000 / 2),
                 position: 'relative',
     		    zIndex: 3
     		});
-
     		Beasts[Beast].inc();
-
     	}
     }
 
@@ -369,10 +357,6 @@ $(document).ready(function () {
     });
 
     $('form input[name=start]').on('click', function () {
-
         gameStart();
-
     });
-
-
 });
