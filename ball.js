@@ -239,9 +239,9 @@ $(document).ready(function () {
 
     counterBeast.on('keyup', function() {
         var $this = $(this);
-        if ($this.val() > 5)
+        if ($this.val() > 7)
         { 
-            $this.val(5);
+            $this.val(7);
         } else if ($this.val() < 3)
         { 
             $this.val(3);
