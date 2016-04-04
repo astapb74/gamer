@@ -28,13 +28,11 @@ essence.prototype =
 
             if (typeof args.left != 'undefined') {
                 this.left = this.left + args.left;
-
             }
 
             if (typeof args.top != 'undefined') {
                 this.top = this.top + args.top;
                 //<= 0 ? 0 : this.top + args.top;
-
             }
 
             if (typeof args.color != 'undefined') {
