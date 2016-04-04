@@ -292,9 +292,9 @@ $(document).ready(function () {
         { 
             $this.val(5);
         }
-        if ($this.val() < 1)
+        if ($this.val() < 3)
         { 
-            $this.val(1);
+            $this.val(3);
         }
     });
 
