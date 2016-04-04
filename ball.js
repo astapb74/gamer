@@ -326,22 +326,22 @@ $(document).ready(function () {
         switch (event.keyCode) {
             case 56:
                 cases.top.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
-                Gamer.top -= 5;
+                Gamer.top -= 10;
                 Gamer.draw();
                 break;
             case 54:
                 cases.right.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
-                Gamer.left += 5;
+                Gamer.left += 10;
                 Gamer.draw();
                 break;
             case 50:
                 cases.bottom.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
-                Gamer.top += 5;
+                Gamer.top += 10;
                 Gamer.draw();
                 break;
             case 52:
                 cases.left.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
-                Gamer.left -= 5;
+                Gamer.left -= 10;
                 Gamer.draw();
                 break;
     	     case 115:
