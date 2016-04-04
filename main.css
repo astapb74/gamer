@@ -66,6 +66,15 @@ body {
     padding: 1.2em .6em 1.3em;
 }
 
+#ball_decorator #panel-drive #case_bottom { 
+    padding: 1.2em 1em 1.3em;
+}
+
+#ball_decorator #panel-drive #case_left,
+#ball_decorator #panel-drive #case_top {
+        padding: 1.2em 0.9em 1.3em;
+}
+
 #ramka {
     width: 920px;
     height: 420px;

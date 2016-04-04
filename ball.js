@@ -240,6 +240,12 @@ $(document).ready(function () {
     var gameStart = function()
     {
 
+        if (!Gamer.life)
+        {
+            location.reload();
+            localStorage['gameStart'] = 1;
+        }
+
         localStorage['counterBeast'] = counterBeast.val();
         
         if (timer)
@@ -354,4 +360,10 @@ $(document).ready(function () {
     $('form input[name=start]').on('click', function () {
         gameStart();
     });
+
+    if (localStorage['gameStart'])
+    {
+        gameStart();
+        delete localStorage['gameStart'];
+    }
 });
