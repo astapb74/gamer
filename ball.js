@@ -227,8 +227,31 @@ essence.prototype =
 
 $(document).ready(function () {
 
+    var counterBeast = $('#counter_beast');
+
+    if (!localStorage['counterBeast'])
+    {
+        localStorage['counterBeast'] = counterBeast.val();
+    } else 
+    {
+        counterBeast.val(localStorage['counterBeast']);
+    }
+
+    counterBeast.on('keyup', function() {
+        var $this = $(this);
+        if ($this.val() > 5)
+        { 
+            $this.val(5);
+        } else if ($this.val() < 3)
+        { 
+            $this.val(3);
+        }
+    });
+
     var gameStart = function()
     {
+
+        localStorage['counterBeast'] = counterBeast.val();
         
         if (timer)
             return;
@@ -250,10 +273,8 @@ $(document).ready(function () {
 
                 $('#timer').text(time.join(':'));
         }, 1000);
-
-    	var counterBeast = parseInt($('#counter_beast').val());
     	
-    	for (var i = 1; i <= counterBeast; i++) {
+    	for (var i = 1; i <= localStorage['counterBeast']; i++) {
 
     		var clone = $('.essence').clone().css({'text-align': 'center', 'color': 'white', 'line-height': '50px'}).html('<span>' + i + '</span>'),
     		    color = 'rgb(' + Math.floor(Math.random() * 1000 / 4)
@@ -272,9 +293,7 @@ $(document).ready(function () {
 
     		Beasts[Beast].name = Beast;
     		
-
     		Beasts[Beast].draw({
-
     		    left: Math.floor(Math.random() * 1000),
     		    top: Math.floor(Math.random() * 1000 / 2),
                 position: 'relative',
@@ -286,30 +305,26 @@ $(document).ready(function () {
     	}
     }
 
-    $('#counter_beast').on('change', function() { 
-        var $this = $(this);
-        if ($this.val() > 5)
-        { 
-            $this.val(5);
-        }
-        if ($this.val() < 3)
-        { 
-            $this.val(3);
-        }
-    });
+    if (!localStorage['gamerColor']) 
+    {
+        localStorage['gamerColor'] = "#f00";
+    }
 
     $("#custom").spectrum({
-        color: "#f00"
+        color: localStorage['gamerColor']
     });
 
     Gamer = new essence({
         $obj: $('#ramka div.ball'),
-        color: 'blue'
+        color: localStorage['gamerColor']
     });
+
+    Gamer.draw({color: Gamer.color});
 
     $('form input[name=draw]').on('click', function () {
         $('#ramka div.ball').show();
-        Gamer.draw({color: $('.sp-preview-inner').css('background-color')});
+        localStorage['gamerColor'] = $('.sp-preview-inner').css('background-color');
+        Gamer.draw({color: localStorage['gamerColor']});
     });
 
     var cases = {
@@ -321,7 +336,7 @@ $(document).ready(function () {
 
     $(document).on('keypress', function (event) {
 
-        Gamer.color = $('.sp-preview-inner').css('background-color');
+        Gamer.color = localStorage['gamerColor'];
 
         switch (event.keyCode) {
             case 56:
