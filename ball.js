@@ -118,9 +118,7 @@ essence.prototype =
             
             // проверяем где мы пересеклись
             for( var j in point ) {
-
                 point[0][j] = (point[j].indexOf(false) === -1 ? 1 : 0);
-
                 // ненужные данные в мусор
                 if( j > 0 ) {
                     delete point[j];
@@ -135,7 +133,7 @@ essence.prototype =
     inc: function () {
 
         var $obj = this,
-        var intervalId = setInterval(function () {
+            intervalId = setInterval(function () {
             
             // Если жертвы нет, то мне делать нечего
             if( !Gamer.life ) {
@@ -197,7 +195,6 @@ essence.prototype =
                         leftR = figure1.y2 - figure2.y2;                     
                     
                     point = parseInt( point[0].toString().replace(/,/g, ''), 2 );
-
                     // если пересечение справа или слева идем обратно
                     options.left = point > 4 ? figure2.x2 - figure1.x1 : 0;
                     // если пересечение сверху идем вниз
