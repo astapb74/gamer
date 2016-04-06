@@ -197,13 +197,39 @@ beast.prototype =
                     var top   = figure2.x2 - figure1.x1,
                         leftL = figure2.y2 - figure1.y1,
                         leftR = figure1.y2 - figure2.y2;                     
-                    
-                    point = parseInt( point[0].toString().replace(/,/g, ''), 2 );
-                    // если пересечение справа или слева идем обратно
-                    options.left = point > 4 ? figure2.x2 - figure1.x1 : 0;
-                    // если пересечение сверху идем вниз
-                    options.top = point > 1 && point < 8 ? leftR : -leftL;
-                 
+
+                    switch ( parseInt( point[0].toString().replace(/,/g, ''), 2 ) ) 
+                    {
+                        /**
+                         * Правый верхний угол
+                        */
+                        case 1:
+                            options.left -= figure1.x2 - figure2.x1;
+                            options.top += figure1.y1 - figure2.y2;
+                        break;
+                        /**
+                         * Правый нижний угол
+                        */
+                        case 2:
+                            options.left -= figure1.x2 - figure2.x1;
+                            options.top -= figure1.y1 - figure2.y1;
+                        break;
+                        /**
+                         * Левый нижний угол
+                        */
+                        case 4:
+                            options.left += figure2.x2 - figure1.x1;
+                            options.top -= figure2.y1 - figure1.y2;
+                        break;
+                        /**
+                         * Левый верхний угол
+                        */
+                        case 8:
+                            options.left += figure2.x2 - figure1.x1;
+                            options.top += figure2.y2 - figure1.y1;
+                        break;
+                    }
+
                     break;
                 }
             }
