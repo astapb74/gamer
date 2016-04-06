@@ -64,8 +64,13 @@ essence.prototype =
         })
 
         this.obj.css(data);
-    },
-    
+    }
+}
+
+function beast() {}
+
+beast.prototype =
+{    
     searchIntersection: function(figure1, figure2) {
         
         var // ищем пересечение координат
@@ -187,7 +192,6 @@ essence.prototype =
                     point = $obj.searchIntersection(figure1, figure2);
 
                 // если звери пересекаються устраняем проблему
-
                 if ( point[0].indexOf(1) > -1 ) {
                     
                     var top   = figure2.x2 - figure1.x1,
@@ -209,8 +213,7 @@ essence.prototype =
                 left: options.left
             });
 
-        }, 100);
-
+        }, 80);
     }
 }
 
@@ -283,6 +286,7 @@ $(document).ready(function () {
     		    color: color,
     		    $obj: clone
     		});
+            $.extend(Beasts[Beast], new beast());
     		Beasts[Beast].name = Beast;
     		Beasts[Beast].draw({
     		    left: Math.floor(Math.random() * 1000),
