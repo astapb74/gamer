@@ -192,11 +192,7 @@ beast.prototype =
                     point = $obj.searchIntersection(figure1, figure2);
 
                 // если звери пересекаються устраняем проблему
-                if ( point[0].indexOf(1) > -1 ) {
-                    
-                    var top   = figure2.x2 - figure1.x1,
-                        leftL = figure2.y2 - figure1.y1,
-                        leftR = figure1.y2 - figure2.y2;                     
+                if ( point[0].indexOf(1) > -1 ) {              
 
                     switch ( parseInt( point[0].toString().replace(/,/g, ''), 2 ) ) 
                     {
