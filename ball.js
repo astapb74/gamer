@@ -1,7 +1,3 @@
-/**
- * Created by mpeegy on 13.06.14.
- */
-
 var Gamer = {}, Beasts = {}, timer;
 
 function essence(param) {
@@ -64,6 +60,7 @@ essence.prototype =
         })
 
         this.obj.css(data);
+        delete data;
     }
 }
 
@@ -158,24 +155,24 @@ beast.prototype =
                         y1: $obj.left,
                         x2: $obj.top + $obj.height,
                         y2: $obj.left + $obj.width,
-                    },
-               // Сьел ли я жертву
-               figure2 = {
+                },
+                // Сьел ли я жертву
+                figure2 = {
                         x1: Gamer.top,
                         y1: Gamer.left,
                         x2: Gamer.top + Gamer.height,
                         y2: Gamer.left + Gamer.width,
-               },
-               point = $obj.searchIntersection(figure1, figure2);
+                },
+                point = $obj.searchIntersection(figure1, figure2);
                       
                   
-           // меня сьели     
-           if( point[0].indexOf(1) > -1 ) {
+            // меня сьели     
+            if( point[0].indexOf(1) > -1 ) {
                 Gamer.obj.remove();
                 Gamer.life = false;
                 clearInterval(intervalId);
                 clearInterval(timer);
-           } 
+            } 
 
             // Зверь просматривает своих друзей
             for ( var i in Beasts ) {
