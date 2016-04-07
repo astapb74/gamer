@@ -241,6 +241,8 @@ beast.prototype =
 
 $(document).ready(function () {
 
+    $("#custom").spectrum({color: "#f00"});
+
     var counterBeast = $('#counter_beast');
 
     if (!localStorage['counterBeast'])
