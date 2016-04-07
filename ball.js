@@ -17,7 +17,7 @@ function essence(param) {
 essence.prototype =
 {
     constructor: essence,
-    INCREMENTATION_STEP: 5,
+    INCREMENTATION_STEP: 10,
 
     draw: function (args) {
 
@@ -137,6 +137,8 @@ beast.prototype =
     // позволяет объекту обнаружить жертву
     inc: function () {
 
+        delete this.life;
+
         var $obj = this,
             intervalId = setInterval(function () {
             
@@ -230,6 +232,8 @@ beast.prototype =
                 }
             }
 
+            delete point;
+
             $obj.draw({
                 top: options.top,
                 left: options.left
@@ -241,14 +245,13 @@ beast.prototype =
 
 $(document).ready(function () {
 
-    $("#custom").spectrum({color: "#f00"});
-
     var counterBeast = $('#counter_beast');
 
     if (!localStorage['counterBeast'])
     {
         localStorage['counterBeast'] = counterBeast.val();
-    } else 
+    } 
+    else 
     {
         counterBeast.val(localStorage['counterBeast']);
     }
@@ -359,25 +362,25 @@ $(document).ready(function () {
             case 56:
             case 38:
                 cases.top.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
-                Gamer.top -= 10;
+                Gamer.top -= Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
             case 54:
             case 39:
                 cases.right.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
-                Gamer.left += 10;
+                Gamer.left += Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
             case 50:
             case 40:
                 cases.bottom.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
-                Gamer.top += 10;
+                Gamer.top += Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
             case 52:
             case 37:
                 cases.left.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
-                Gamer.left -= 10;
+                Gamer.left -= Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
     	     case 115:
