@@ -355,21 +355,25 @@ $(document).ready(function () {
 
         switch (event.keyCode) {
             case 56:
+            case 38:
                 cases.top.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.top -= 10;
                 Gamer.draw();
                 break;
             case 54:
+            case 39:
                 cases.right.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.left += 10;
                 Gamer.draw();
                 break;
             case 50:
+            case 40:
                 cases.bottom.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.top += 10;
                 Gamer.draw();
                 break;
             case 52:
+            case 37:
                 cases.left.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.left -= 10;
                 Gamer.draw();
@@ -378,6 +382,7 @@ $(document).ready(function () {
              case 83:
              case 1099:
              case 1067:
+             case 0:
     		    gameStart();
 		     break;
         }
