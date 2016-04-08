@@ -227,13 +227,13 @@ beast.prototype =
                     break;
                 }
             }
-
-            delete point, figure1, figure2;
-
+            
             $obj.draw({
                 top: options.top,
                 left: options.left
             });
+
+            delete point, figure1, figure2, options;
 
         }, 80);
     }
@@ -356,34 +356,44 @@ $(document).ready(function () {
         Gamer.color = localStorage['gamerColor'];
 
         switch (event.keyCode) {
+            // хром, опера, сафари
             case 56:
+            // firefox
             case 38:
                 cases.top.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.top -= Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
+            // хром, опера, сафари    
             case 54:
+            // firefox
             case 39:
                 cases.right.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.left += Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
+            // хром, опера, сафари     
             case 50:
+            // firefox
             case 40:
                 cases.bottom.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.top += Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
+            // хром, опера, сафари         
             case 52:
+            // firefox
             case 37:
                 cases.left.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
                 Gamer.left -= Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
+             // хром, опера, сафари            
     	     case 115:
              case 83:
              case 1099:
              case 1067:
+             // firefox
              case 0:
     		    gameStart();
 		     break;
