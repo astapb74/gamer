@@ -28,7 +28,6 @@ essence.prototype =
 
             if (typeof args.top != 'undefined') {
                 this.top = this.top + args.top;
-                //<= 0 ? 0 : this.top + args.top;
             }
 
             if (typeof args.color != 'undefined') {
@@ -229,7 +228,7 @@ beast.prototype =
                 }
             }
 
-            delete point;
+            delete point, figure1, figure2;
 
             $obj.draw({
                 top: options.top,
@@ -298,7 +297,8 @@ $(document).ready(function () {
     	
     	for (var i = 1; i <= localStorage['counterBeast']; i++) {
 
-    		var clone = $('.essence').clone().css({'text-align': 'center', 'color': 'white', 'line-height': '50px'}).html('<span>' + i + '</span>'),
+    		var clone = $('.essence').clone().css({'text-align': 'center', 'color': 'white', 'line-height': '50px'})
+                            .html('<span>' + i + '</span>'),
     		    color = 'rgb(' + Math.floor(Math.random() * 1000 / 4)
     		        + ', ' + Math.floor(Math.random() * 1000 / 4)
     		        + ', ' + Math.floor(Math.random() * 1000 / 4) + ')',
