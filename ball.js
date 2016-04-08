@@ -277,8 +277,10 @@ $(document).ready(function () {
         if (timer)
             return;
 
+        var timerBlock = $('#timer');
+
         timer = setInterval(function(){ 
-            var time = $('#timer').text().split(':');
+            var time = timerBlock.text().split(':');
 
                 time[1] = parseInt(time[1]) + 1;
                 if (time[1] == 60)
@@ -292,7 +294,7 @@ $(document).ready(function () {
                     time[1] = '0' + time[1];
                 }
 
-                $('#timer').text(time.join(':'));
+                timerBlock.text(time.join(':'));
         }, 1000);
     	
     	for (var i = 1; i <= localStorage['counterBeast']; i++) {
@@ -345,22 +347,23 @@ $(document).ready(function () {
     });
 
     var cases = {
-        top: $('#case_top'),
-        left: $('#case_left'),
-        right: $('#case_right'),
-        bottom: $('#case_bottom')
-    };
+            top: $('#case_top'),
+            left: $('#case_left'),
+            right: $('#case_right'),
+            bottom: $('#case_bottom')
+        },
+        flash = ( navigator.userAgent.indexOf('firefox') > -1 ) ? 10 : 5;
 
     $(document).on('keypress', function (event) {
 
-        Gamer.color = localStorage['gamerColor'];
+        Gamer.color = localStorage['gamerColor'];        
 
         switch (event.keyCode) {
             // хром, опера, сафари
             case 56:
             // firefox
             case 38:
-                cases.top.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
+                cases.top.animate({opacity: 0.5}, flash).animate({opacity: 1}, flash);
                 Gamer.top -= Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
@@ -368,7 +371,7 @@ $(document).ready(function () {
             case 54:
             // firefox
             case 39:
-                cases.right.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
+                cases.right.animate({opacity: 0.5}, flash).animate({opacity: 1}, flash);
                 Gamer.left += Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
@@ -376,7 +379,7 @@ $(document).ready(function () {
             case 50:
             // firefox
             case 40:
-                cases.bottom.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
+                cases.bottom.animate({opacity: 0.5}, flash).animate({opacity: 1}, flash);
                 Gamer.top += Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
@@ -384,7 +387,7 @@ $(document).ready(function () {
             case 52:
             // firefox
             case 37:
-                cases.left.animate({opacity: 0.5},10).animate({opacity: 1}, 10);
+                cases.left.animate({opacity: 0.5}, flash).animate({opacity: 1}, flash);
                 Gamer.left -= Gamer.INCREMENTATION_STEP;
                 Gamer.draw();
                 break;
